@@ -1,9 +1,5 @@
 import React, {useRef} from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
 import {Dimensions, View, StyleSheet, Text, Animated} from 'react-native';
-
-const Stack = createStackNavigator();
 
 const {width: ScreenWidth, height: ScreenHeight} = Dimensions.get('window');
 const itemHeight = ScreenHeight * 0.45454545;
@@ -39,7 +35,7 @@ const DATA = [
   },
 ];
 
-const Home = () => {
+const App = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
 
   const RenderItem = ({item, index}) => {
@@ -89,20 +85,6 @@ const Home = () => {
         snapToInterval={itemWidth + 20}
       />
     </View>
-  );
-};
-const Dummy = () => {
-  return <Text>dummy page</Text>;
-};
-
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="home" component={Home} />
-        <Stack.Screen name="dummy" component={Dummy} />
-      </Stack.Navigator>
-    </NavigationContainer>
   );
 };
 
